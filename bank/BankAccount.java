@@ -1,3 +1,5 @@
+package bank;
+
 import java.util.ArrayList;
 
 public class BankAccount {
@@ -5,7 +7,7 @@ public class BankAccount {
 	private String accnumber; //getter only
 	private float accbalance;
 	private ArrayList<String> transactions = new ArrayList<String>();
-	private boolean accstatus;
+	private boolean accstatus = false;
 	private String creationdate;
 	private String closedate;
 	
@@ -24,16 +26,16 @@ public class BankAccount {
 			throw new IllegalArgumentException();
 		else {
 			this.accbalance += amount;
-			this.transactions.add("deposit " + amount + " at <date time>");
+			this.transactions.add("Deposited " + amount + " at <date time>. Balance is " + accbalance);
 		}
 	}
 	
 	public void withdraw (float amount) throws IllegalArgumentException {
-		if (amount < 0 || accstatus == true)
+		if (amount < 0 || accstatus == true || amount > accbalance)
 			throw new IllegalArgumentException();
 		else {
 			this.accbalance -= amount;
-			this.transactions.add("withdraw " + amount + " at <date time>");
+			this.transactions.add("withdraw " + amount + " at <date time>. Balance is " + accbalance);
 		}
 	}
 	
