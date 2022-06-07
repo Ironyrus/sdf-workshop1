@@ -1,7 +1,7 @@
 /*
 PS C:\Users\vans_\sdf-workshop1> git add . (add ALL content of cart to github)
-git commit -m "While Loop"
-git push origin main
+git commit -m "While Loop"                  (add comment while committing)
+git push origin main                        (push to main branch)
 */
 package cart;
 
@@ -17,15 +17,11 @@ public class ShoppingCart {
         int delIndex;
         boolean stop = false;
 
-        cart.add("apple");
-        cart.add("orange");
-        cart.add("pear");
-
         while(!stop) {
             input = cons.readLine("> ");
             System.out.printf("READ: %s\n", input);
             String[] terms = input.split(" ");
-            String cmd = terms[0];
+            String cmd = terms[0].toLowerCase();
 
             switch(cmd) {
                 case "add":
@@ -38,6 +34,7 @@ public class ShoppingCart {
                         for (int j = 0; j < cart.size(); j++) {
                             if(fruits[i].equals(cart.get(j))) {
                                 found = true;
+                                System.out.println("You have " + fruits[i] + " in your cart");
                                 break;
                             }
                         }
@@ -78,7 +75,7 @@ public class ShoppingCart {
                     stop = true;
                     break;
                 default:
-                    System.out.println("Usage: add/del/end ");
+                    System.out.println("Usage: add/del/end SOMETHING");
             }
         }
         System.out.println("Thank you for shopping with us");
