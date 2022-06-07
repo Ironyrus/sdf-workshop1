@@ -1,3 +1,9 @@
+/*
+PS C:\Users\vans_\sdf-workshop1> git add . (add ALL content of cart to github)
+git commit -m "While Loop"
+git push origin main
+*/
+
 package cart;
 
 import java.io.Console;
